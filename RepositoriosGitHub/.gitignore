@@ -1,7 +1,6 @@
 ## Compilação
-bin/
-obj/
-out/
+**/bin/**
+**/obj/**
 
 ## User-specific
 *.user
@@ -10,7 +9,7 @@ out/
 *.sln.docstates
 
 ## Visual Studio
-.vs/
+.\vs
 
 ## VS Code
 .vscode/
