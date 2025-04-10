@@ -97,3 +97,4 @@ D:\dev\projects\ABCFitness\RepositoriosGitHub\Testes\obj\Debug\net7.0\refint\Tes
 D:\dev\projects\ABCFitness\RepositoriosGitHub\Testes\obj\Debug\net7.0\Testes.pdb
 D:\dev\projects\ABCFitness\RepositoriosGitHub\Testes\obj\Debug\net7.0\Testes.genruntimeconfig.cache
 D:\dev\projects\ABCFitness\RepositoriosGitHub\Testes\obj\Debug\net7.0\ref\Testes.dll
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Testes\obj\Debug\net7.0\Testes.sourcelink.json

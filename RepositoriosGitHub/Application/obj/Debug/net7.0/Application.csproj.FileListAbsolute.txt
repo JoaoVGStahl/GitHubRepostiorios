@@ -28,3 +28,4 @@ D:\dev\projects\ABCFitness\RepositoriosGitHub\Application\bin\Debug\net7.0\Domai
 D:\dev\projects\ABCFitness\RepositoriosGitHub\Application\obj\Debug\net7.0\Application.csproj.AssemblyReference.cache
 D:\dev\projects\ABCFitness\RepositoriosGitHub\Application\obj\Debug\net7.0\Applicat.44B5EDA2.Up2Date
 D:\dev\projects\ABCFitness\RepositoriosGitHub\Application\obj\Debug\net7.0\ref\Application.dll
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Application\obj\Debug\net7.0\Application.sourcelink.json
