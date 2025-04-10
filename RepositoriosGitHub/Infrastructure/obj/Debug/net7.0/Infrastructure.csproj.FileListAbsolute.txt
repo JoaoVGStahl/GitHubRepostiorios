@@ -1,0 +1,17 @@
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.AssemblyReference.cache
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfoInputs.cache
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastructure.AssemblyInfo.cs
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastructure.csproj.CoreCompileInputs.cache
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\bin\Debug\net7.0\Infrastructure.deps.json
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\bin\Debug\net7.0\Infrastructure.dll
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\bin\Debug\net7.0\Infrastructure.pdb
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\bin\Debug\net7.0\Application.dll
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\bin\Debug\net7.0\Domain.dll
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\bin\Debug\net7.0\Application.pdb
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\bin\Debug\net7.0\Domain.pdb
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastr.15EFFBFE.Up2Date
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastructure.dll
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\refint\Infrastructure.dll
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\Infrastructure.pdb
+D:\dev\projects\ABCFitness\RepositoriosGitHub\Infrastructure\obj\Debug\net7.0\ref\Infrastructure.dll
