@@ -1,0 +1,61 @@
+## Compilação
+bin/
+obj/
+out/
+
+## User-specific
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+## Visual Studio
+.vs/
+
+## VS Code
+.vscode/
+
+## Build de dependências
+packages/
+project.lock.json
+project.fragment.lock.json
+artifacts/
+
+## Logs
+*.log
+
+## Configurações temporárias
+*.db
+*.pidb
+*.svd
+*.userprefs
+
+## Secrets e local settings
+appsettings.Development.json
+secrets.json
+*.pfx
+
+## Dotnet watch
+**/Properties/launchSettings.json
+
+## Sistema operacional
+.DS_Store
+Thumbs.db
+
+## Rider/JetBrains
+.idea/
+*.sln.iml
+
+## Teste com cobertura
+TestResults/
+coverage/
+*.coverage
+*.coveragexml
+*.lcov
+
+## Arquivos publicados
+publish/
+wwwroot/
+
+## Docker
+**/docker-compose.override.yml
