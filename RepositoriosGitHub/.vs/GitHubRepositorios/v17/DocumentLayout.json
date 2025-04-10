@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|solutionrelative:api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\api\\configuracoes\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|solutionrelative:api\\configuracoes\\swaggerconfig.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\api\\controllers\\repositorioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|solutionrelative:api\\controllers\\repositorioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,6 +59,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RepositoriosController.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Controllers\\RepositoriosController.cs",
+              "RelativeDocumentMoniker": "Api\\Controllers\\RepositoriosController.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Controllers\\RepositoriosController.cs",
+              "RelativeToolTip": "Api\\Controllers\\RepositoriosController.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T23:47:42.746Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "SwaggerConfig.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Configuracoes\\SwaggerConfig.cs",
+              "RelativeDocumentMoniker": "Api\\Configuracoes\\SwaggerConfig.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Configuracoes\\SwaggerConfig.cs",
+              "RelativeToolTip": "Api\\Configuracoes\\SwaggerConfig.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAqwBcAAAAhAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T23:46:19.256Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Program.cs",
+              "RelativeDocumentMoniker": "Api\\Program.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Program.cs",
+              "RelativeToolTip": "Api\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-10T23:46:16.953Z",
+              "EditorCaption": ""
             }
           ]
         }

@@ -13,7 +13,7 @@ namespace WebApi.Configuracoes
                 {
                     Title = "API de Repositórios",
                     Version = "v1",
-                    Description = "API para pesquisar e favoritas repositórios públicos do GitHub."
+                    Description = "API para pesquisar repositórios públicos do GitHub.",
                 });
             });
         }
@@ -21,7 +21,10 @@ namespace WebApi.Configuracoes
         public static void UseSwaggerConfig(this WebApplication app)
         {
             app.UseSwagger();
-            app.UseSwaggerUI();
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "API de Repositórios");
+            });
         }
     }
 }

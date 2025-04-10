@@ -1,1 +1,44 @@
-[]
+[
+  {
+    "ContainingType": "WebApi.Controllers.RepositoriosController",
+    "Method": "AdicionarFavorito",
+    "RelativePath": "Repositorios/AdicionarFavorito",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "favorito",
+        "Type": "Domain.Entities.Repositorio",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.RepositoriosController",
+    "Method": "ListarFavoritos",
+    "RelativePath": "Repositorios/ListarFavoritos",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.RepositoriosController",
+    "Method": "RemoverFavorito",
+    "RelativePath": "Repositorios/RemoverFavorito/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
 {
+    [Route("[controller]/[action]")]
     public class RepositoriosController : Controller
     {
         private readonly IFavoritoStorage _favoritoStorage;
