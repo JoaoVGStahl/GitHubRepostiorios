@@ -13,26 +13,67 @@ namespace Infrastructure.Clients
             _httpClient = httpClient;
         }
 
-        public async Task<IEnumerable<Repositorio>> BuscarRepositoriosAsync(string name)
+        public async Task<IEnumerable<Repositorio>> BuscarDoUsuario(string nome)
+        {
+            var response = await _httpClient.GetAsync($"/users/{nome}/repos");
+
+            ValidarRespostaHttp(response);
+
+            string json = await response.Content.ReadAsStringAsync();
+
+            if (string.IsNullOrWhiteSpace(json))
+                return Enumerable.Empty<Repositorio>();
+
+            return DesserializarRepositorios(json);
+        }
+
+        public async Task<IEnumerable<Repositorio>> BuscarAsync(string name)
         {
             var response = await _httpClient.GetAsync($"search/repositories?q=${name}");
 
-            response.EnsureSuccessStatusCode(); 
+            ValidarRespostaHttp(response);
 
             var json = await response.Content.ReadAsStringAsync();
 
-            using var document = JsonDocument.Parse(json);
+            var document = JsonDocument.Parse(json).RootElement;
+            var reposNode = document.GetProperty("items");
 
-            var root = document.RootElement;
-            var reposArray = root.GetProperty("items");
+            return DesserializarRepositorios(reposNode.GetRawText());
+        }
 
-            // Deserializar direto para lista
-            var repositorios = JsonSerializer.Deserialize<List<Repositorio>>(reposArray.GetRawText(), new JsonSerializerOptions
+        public async Task<IEnumerable<Repositorio>> BuscarAsync()
+        {
+            var response = await _httpClient.GetAsync($"search/repositories?q=%7bnome");
+
+            ValidarRespostaHttp(response);
+
+            var json = await response.Content.ReadAsStringAsync();
+
+            var document = JsonDocument.Parse(json).RootElement;
+            var reposNode = document.GetProperty("items");
+
+            return DesserializarRepositorios(reposNode.GetRawText());
+        }
+
+        private static void ValidarRespostaHttp(HttpResponseMessage response)
+        {
+            if (!response.IsSuccessStatusCode)
+                throw new HttpRequestException($"Erro ao buscar repositórios: {response.StatusCode} - {response.ReasonPhrase}");
+        }
+
+        private static IEnumerable<Repositorio> DesserializarRepositorios(string json)
+        {
+            try
             {
-                PropertyNameCaseInsensitive = true
-            });
-
-            return repositorios ?? new();
+                return JsonSerializer.Deserialize<List<Repositorio>>(json, new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                }) ?? Enumerable.Empty<Repositorio>();
+            }
+            catch (JsonException ex)
+            {
+                throw new InvalidDataException("Ocorreu um erro ao processar sua solicitação.", ex);
+            }
         }
 
         public void Dispose()

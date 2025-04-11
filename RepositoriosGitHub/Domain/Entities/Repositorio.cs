@@ -11,6 +11,17 @@ namespace Domain.Entities
 
         [JsonPropertyName("html_url")]
         public string Url { get; set; }
+
+        [JsonPropertyName("stargazers_count")]
+        public int Stars { get; set; }
+
+        [JsonPropertyName("forks_count")]
+        public int Forks { get; set; }
+
+        [JsonPropertyName("watchers_count")]
+        public int Watchers { get; set; }
+
+        public double Relevancia { get; set; }
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Domain.Constantes;
 using Domain.Entities;
 
 namespace Application.Services
@@ -6,38 +7,62 @@ namespace Application.Services
     public class RepositorioService : IRepositorioService
     {
         private readonly IGitHubClient _cliente;
-        private readonly IFavoritosStorage _favoritosStorage;
-
-        public RepositorioService(IGitHubClient gitHubClient,
-                                  IFavoritosStorage favoritosStorage)
+        public RepositorioService(IGitHubClient gitHubClient)
         {
             _cliente = gitHubClient;
-            _favoritosStorage = favoritosStorage;
         }
 
-        public Task<IEnumerable<List<Repositorio>>> ListarRepositoriosDoUsuario(int id)
+        public async Task<IEnumerable<Repositorio>> ListarDoUsuario(string nome)
         {
-            throw new NotImplementedException();
+            return await _cliente.BuscarDoUsuario(nome);
         }
 
-        public async Task<IEnumerable<Repositorio>> ListarRepositoriosPorNome(string nome)
+        public async Task<IEnumerable<Repositorio>> ListarPorNome(string nome)
         {
-            return await _cliente.BuscarRepositoriosAsync(nome);
+            return await _cliente.BuscarAsync(nome);
         }
 
-        public void AdicionarFavorito(Repositorio repositorio)
+        public async Task<IEnumerable<Repositorio>> ListarPorRelevanciaAsync(bool asc)
         {
-            _favoritosStorage.Adicionar(repositorio);
+            var repositorios = await _cliente.BuscarAsync();
+
+            foreach (var repositorio in repositorios)
+            {
+                repositorio.Relevancia = CalcularRelevancia(repositorio);
+            }
+
+            return OrdenarPorRelevancia(repositorios, asc);
         }
 
-        public void RemoverFavorito(int id)
+        private static IEnumerable<Repositorio> OrdenarPorRelevancia(IEnumerable<Repositorio> repositorios, bool asc)
         {
-            _favoritosStorage.Remover(id);
+            return asc
+                ? repositorios.OrderBy(r => r.Relevancia)
+                : repositorios.OrderByDescending(r => r.Relevancia);
         }
 
-        public IEnumerable<Repositorio> ListarFavoritos()
+        private static double CalcularRelevancia(Repositorio item)
         {
-            return _favoritosStorage.ListarFavoritos();
+            /*
+                A relevância é calculada com base nos seguintes critérios:
+                - Forks (maior peso): indicam o quanto um repositório é usado.
+                - Estrelas (peso médio): indica popularidade.
+                - Watchers (menor peso): indica interesse.
+
+                Limites máximos com Math.Min evita distorções.
+                Exemplo: um repositório extremamente curtido mas com poucos forks não será mais relevante
+                que um repositório com muitos forks.
+
+                RelevanciaConfig centralizando as constantes de relevância, facilitando a manutenção e reutilização.
+            */
+
+            var estrelas = Math.Min(item.Stars, RelevanciaConfig.MAX_STARS);
+            var forks = Math.Min(item.Forks, RelevanciaConfig.MAX_FORKS);
+            var watchers = Math.Min(item.Watchers, RelevanciaConfig.MAX_WATCHERS);
+
+            return (estrelas * RelevanciaConfig.PESO_STARS) +
+                   (forks * RelevanciaConfig.PESO_FORKS) +
+                   (watchers * RelevanciaConfig.PESO_WATCHERS);
         }
 
         public void Dispose()

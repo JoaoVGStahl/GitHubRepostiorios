@@ -4,10 +4,20 @@ namespace Application.Interfaces
 {
     public interface IRepositorioService : IDisposable
     {
-        Task<IEnumerable<List<Repositorio>>> ListarRepositoriosDoUsuario(int id);
-        Task<IEnumerable<Repositorio>> ListarRepositoriosPorNome(string nome);
-        void AdicionarFavorito(Repositorio repositorio);
-        void RemoverFavorito(int id);
-        IEnumerable<Repositorio> ListarFavoritos();
+        /// <summary>
+        /// Lista os repositórios de um determinado usuário.
+        /// </summary>
+        /// <param name="nome">O nome do usuário em questão.</param>
+        Task<IEnumerable<Repositorio>> ListarDoUsuario(string nome);
+        /// <summary>
+        /// Lista os repositórios filtrando pelo nome.
+        /// </summary>
+        /// <param name="nome">Nome que o repositório deve conter</param>
+        Task<IEnumerable<Repositorio>> ListarPorNome(string nome);
+        /// <summary>
+        /// Lista os repositórios ordenando por relevância.
+        /// </summary>
+        /// <param name="asc">A ordenação deve ser crescente ou decrescente</param>
+        Task<IEnumerable<Repositorio>> ListarPorRelevanciaAsync(bool asc);
     }
 }

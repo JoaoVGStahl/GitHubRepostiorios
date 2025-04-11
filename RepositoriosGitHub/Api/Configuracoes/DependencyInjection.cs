@@ -10,6 +10,7 @@ namespace WebApi.Configuracoes
         public static void AddApplicationServices(this IServiceCollection services)
         {
             services.AddTransient<IRepositorioService, RepositorioService>();
+            services.AddTransient<IFavoritosService, FavoritosService>();
 
             services.AddSingleton<IFavoritosStorage, FavoritosStorage>();
 

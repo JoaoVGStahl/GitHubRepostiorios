@@ -1,5 +1,4 @@
 ﻿using Application.Interfaces;
-using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -16,32 +15,23 @@ namespace WebApi.Controllers
             _favoritoStorage = favoritoStorage;
             this.repositorioService = repositorioService;
         }
-
-        [HttpPost]
-        public IActionResult AdicionarFavorito([FromBody] Repositorio favorito)
+        
+        [HttpGet("{nome}")]
+        public async Task<IActionResult> ListarPorNome(string nome)
         {
-            _favoritoStorage.Adicionar(favorito);
-            return Ok();
+            return Ok(await repositorioService.ListarPorNome(nome));
         }
 
-        [HttpGet]
-        public IActionResult ListarFavoritos()
+        [HttpGet("{nome}")]
+        public async Task<IActionResult> ListarDoUsuario(string nome)
         {
-            var favoritos = _favoritoStorage.ListarFavoritos();
-            return Ok(favoritos);
+            return Ok(await repositorioService.ListarDoUsuario(nome));
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult RemoverFavorito(int id)
+        [HttpGet("{asc}")]
+        public async Task<IActionResult> ListarPorRelevancia(bool asc)
         {
-            _favoritoStorage.Remover(id);
-            return NoContent();
-        }
-
-        [HttpGet("{name}")]
-        public async Task<IActionResult> ListarRepositoriosPorNome(string name)
-        {
-            return Ok(await repositorioService.ListarRepositoriosPorNome(name));
+            return Ok(await repositorioService.ListarPorRelevanciaAsync(asc));
         }
     }
 }

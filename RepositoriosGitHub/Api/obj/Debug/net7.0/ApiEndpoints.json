@@ -1,8 +1,8 @@
 [
   {
-    "ContainingType": "WebApi.Controllers.RepositoriosController",
+    "ContainingType": "WebApi.Controllers.FavoritosController",
     "Method": "AdicionarFavorito",
-    "RelativePath": "Repositorios/AdicionarFavorito",
+    "RelativePath": "Favoritos/AdicionarFavorito",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
@@ -16,9 +16,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "WebApi.Controllers.RepositoriosController",
+    "ContainingType": "WebApi.Controllers.FavoritosController",
     "Method": "ListarFavoritos",
-    "RelativePath": "Repositorios/ListarFavoritos",
+    "RelativePath": "Favoritos/ListarFavoritos",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -26,15 +26,31 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "WebApi.Controllers.FavoritosController",
+    "Method": "RemoverFavorito",
+    "RelativePath": "Favoritos/RemoverFavorito/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "WebApi.Controllers.RepositoriosController",
-    "Method": "ListarRepositoriosPorNome",
-    "RelativePath": "Repositorios/ListarRepositoriosPorNome/{name}",
+    "Method": "ListarDoUsuario",
+    "RelativePath": "Repositorios/ListarDoUsuario/{nome}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "name",
+        "Name": "nome",
         "Type": "System.String",
         "IsRequired": true
       }
@@ -43,15 +59,31 @@
   },
   {
     "ContainingType": "WebApi.Controllers.RepositoriosController",
-    "Method": "RemoverFavorito",
-    "RelativePath": "Repositorios/RemoverFavorito/{id}",
-    "HttpMethod": "DELETE",
+    "Method": "ListarPorNome",
+    "RelativePath": "Repositorios/ListarPorNome/{nome}",
+    "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "id",
-        "Type": "System.Int32",
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.RepositoriosController",
+    "Method": "ListarPorRelevancia",
+    "RelativePath": "Repositorios/ListarPorRelevancia/{asc}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "asc",
+        "Type": "System.Boolean",
         "IsRequired": true
       }
     ],
