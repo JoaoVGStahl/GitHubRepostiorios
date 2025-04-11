@@ -3,7 +3,7 @@ using Domain.Entities;
 
 namespace Infrastructure.Storage
 {
-    public class FavoritoStorage : IFavoritoStorage
+    public class FavoritosStorage : IFavoritosStorage
     {
         private Dictionary<int, Repositorio> RepositoriosFavoritos { get; set; } = new();
 
@@ -25,6 +25,11 @@ namespace Infrastructure.Storage
         public void Remover(int id)
         {
             RepositoriosFavoritos.Remove(id);
+        }
+
+        public void Dispose()
+        {
+            GC.SuppressFinalize(this);
         }
     }
 }

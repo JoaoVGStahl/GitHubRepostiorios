@@ -7,9 +7,9 @@ namespace WebApi.Controllers
     [Route("[controller]/[action]")]
     public class RepositoriosController : Controller
     {
-        private readonly IFavoritoStorage _favoritoStorage;
+        private readonly IFavoritosStorage _favoritoStorage;
 
-        public RepositoriosController(IFavoritoStorage favoritoStorage)
+        public RepositoriosController(IFavoritosStorage favoritoStorage)
         {
             _favoritoStorage = favoritoStorage;
         }

@@ -3,38 +3,46 @@ using Domain.Entities;
 
 namespace Application.Services
 {
-    public class RepositorioService
+    public class RepositorioService : IRepositorioService
     {
-        private readonly HttpClient _http;
+        private readonly IGitHubClient _cliente;
+        private readonly IFavoritosStorage _favoritosStorage;
 
-        public RepositorioService(HttpClient http)
+        public RepositorioService(IGitHubClient gitHubClient,
+                                  IFavoritosStorage favoritosStorage)
         {
-            _http = http;
+            _cliente = gitHubClient;
+            _favoritosStorage = favoritosStorage;
         }
 
-        public async Task<List<Repositorio>> ListarRepositoriosDoUsuario(string usuario)
+        public Task<IEnumerable<List<Repositorio>>> ListarRepositoriosDoUsuario(int id)
         {
-            // TODO
-            // Seu código aqui
-            throw new NotImplementedException("Implementar lógica para listar repositórios.");
+            throw new NotImplementedException();
         }
 
-        public async Task AdicionarFavorito(Repositorio repositorio)
+        public Task<IEnumerable<Repositorio>> ListarRepositoriosPorNome(string nome)
         {
-            // TODO
-            // Seu código aqui
+            throw new NotImplementedException();
         }
 
-        public async Task<List<Repositorio>> ListarFavoritos()
+        public void AdicionarFavorito(Repositorio repositorio)
         {
-            // TODO
-            // Seu código aqui
-            throw new NotImplementedException("Implementar lógica para listar favoritos.");
+            _favoritosStorage.Adicionar(repositorio);
+        }
+
+        public void RemoverFavorito(int id)
+        {
+            _favoritosStorage.Remover(id);
+        }
+
+        public IEnumerable<Repositorio> ListarFavoritos()
+        {
+            return _favoritosStorage.ListarFavoritos();
         }
 
         public void Dispose()
         {
-            _http.Dispose();
+            _cliente.Dispose();
             GC.SuppressFinalize(this);
         }
     }

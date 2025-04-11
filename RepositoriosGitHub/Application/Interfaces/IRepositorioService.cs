@@ -6,8 +6,8 @@ namespace Application.Interfaces
     {
         Task<IEnumerable<List<Repositorio>>> ListarRepositoriosDoUsuario(int id);
         Task<IEnumerable<Repositorio>> ListarRepositoriosPorNome(string nome);
-        void AdicionarFavorito(Repositorio favorito);
+        void AdicionarFavorito(Repositorio repositorio);
         void RemoverFavorito(int id);
-        Task<IEnumerable<Repositorio>> ListarFavoritos();
+        IEnumerable<Repositorio> ListarFavoritos();
     }
 }

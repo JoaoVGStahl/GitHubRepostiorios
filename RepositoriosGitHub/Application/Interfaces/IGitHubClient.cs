@@ -1,6 +1,6 @@
 ﻿namespace Application.Interfaces
 {
-    public interface IGitHubClient
+    public interface IGitHubClient : IDisposable
     {
 
     }

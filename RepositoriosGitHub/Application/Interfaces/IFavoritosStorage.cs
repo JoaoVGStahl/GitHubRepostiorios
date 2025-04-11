@@ -2,7 +2,7 @@
 
 namespace Application.Interfaces
 {
-    public interface IFavoritoStorage
+    public interface IFavoritosStorage : IDisposable
     {
         void Adicionar(Repositorio favorito);
         void Remover(int id);
