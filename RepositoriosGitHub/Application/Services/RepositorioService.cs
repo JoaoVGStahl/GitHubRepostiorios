@@ -20,9 +20,9 @@ namespace Application.Services
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Repositorio>> ListarRepositoriosPorNome(string nome)
+        public async Task<IEnumerable<Repositorio>> ListarRepositoriosPorNome(string nome)
         {
-            throw new NotImplementedException();
+            return await _cliente.BuscarRepositoriosAsync(nome);
         }
 
         public void AdicionarFavorito(Repositorio repositorio)

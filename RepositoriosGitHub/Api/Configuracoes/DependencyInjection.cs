@@ -1,4 +1,5 @@
 ﻿using Application.Interfaces;
+using Application.Services;
 using Infrastructure.Clients;
 using Infrastructure.Storage;
 
@@ -8,7 +9,7 @@ namespace WebApi.Configuracoes
     {
         public static void AddApplicationServices(this IServiceCollection services)
         {
-            //services.AddTransient<IRepositorioService, RepositorioService>();
+            services.AddTransient<IRepositorioService, RepositorioService>();
 
             services.AddSingleton<IFavoritosStorage, FavoritosStorage>();
 

@@ -27,6 +27,22 @@
   },
   {
     "ContainingType": "WebApi.Controllers.RepositoriosController",
+    "Method": "ListarRepositoriosPorNome",
+    "RelativePath": "Repositorios/ListarRepositoriosPorNome/{name}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "name",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "WebApi.Controllers.RepositoriosController",
     "Method": "RemoverFavorito",
     "RelativePath": "Repositorios/RemoverFavorito/{id}",
     "HttpMethod": "DELETE",

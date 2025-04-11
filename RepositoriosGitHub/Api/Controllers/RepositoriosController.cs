@@ -8,10 +8,13 @@ namespace WebApi.Controllers
     public class RepositoriosController : Controller
     {
         private readonly IFavoritosStorage _favoritoStorage;
+        private readonly IRepositorioService repositorioService;
 
-        public RepositoriosController(IFavoritosStorage favoritoStorage)
+        public RepositoriosController(IFavoritosStorage favoritoStorage, 
+                                      IRepositorioService repositorioService)
         {
             _favoritoStorage = favoritoStorage;
+            this.repositorioService = repositorioService;
         }
 
         [HttpPost]
@@ -33,6 +36,12 @@ namespace WebApi.Controllers
         {
             _favoritoStorage.Remover(id);
             return NoContent();
+        }
+
+        [HttpGet("{name}")]
+        public async Task<IActionResult> ListarRepositoriosPorNome(string name)
+        {
+            return Ok(await repositorioService.ListarRepositoriosPorNome(name));
         }
     }
 }
