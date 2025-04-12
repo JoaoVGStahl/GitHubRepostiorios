@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\testes\\services\\repositorioservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|solutionrelative:testes\\services\\repositorioservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\testes\\services\\relevanciaservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|solutionrelative:testes\\services\\relevanciaservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\testes\\services\\favoritosservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|solutionrelative:testes\\services\\favoritosservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,7 +22,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 9,
           "Children": [
             {
               "$type": "Bookmark",
@@ -46,6 +59,45 @@
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RepositorioServiceTests.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RepositorioServiceTests.cs",
+              "RelativeDocumentMoniker": "Testes\\Services\\RepositorioServiceTests.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RepositorioServiceTests.cs",
+              "RelativeToolTip": "Testes\\Services\\RepositorioServiceTests.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:28:22.897Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RelevanciaServiceTestes.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RelevanciaServiceTestes.cs",
+              "RelativeDocumentMoniker": "Testes\\Services\\RelevanciaServiceTestes.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RelevanciaServiceTestes.cs",
+              "RelativeToolTip": "Testes\\Services\\RelevanciaServiceTestes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:28:03.173Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "FavoritosServiceTestes.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\FavoritosServiceTestes.cs",
+              "RelativeDocumentMoniker": "Testes\\Services\\FavoritosServiceTestes.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\FavoritosServiceTestes.cs",
+              "RelativeToolTip": "Testes\\Services\\FavoritosServiceTestes.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAiAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T14:27:42.21Z",
+              "EditorCaption": ""
             }
           ]
         }
