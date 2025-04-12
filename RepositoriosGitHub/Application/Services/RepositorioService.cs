@@ -1,4 +1,6 @@
-﻿using Application.Interfaces;
+﻿using Application.DTOs;
+using Application.Interfaces;
+using Application.Mappers;
 using Domain.Constantes;
 using Domain.Entities;
 
@@ -12,29 +14,37 @@ namespace Application.Services
             _cliente = gitHubClient;
         }
 
-        public async Task<IEnumerable<Repositorio>> ListarDoUsuario(string nome)
+        public async Task<IEnumerable<RepositorioDTO>> ListarDoUsuarioAsync(string nome)
         {
-            return await _cliente.BuscarDoUsuario(nome);
+            var repositorio = await _cliente.BuscarDoUsuario(nome);
+
+            if (!repositorio.Any()) return Enumerable.Empty<RepositorioDTO>();
+
+            return repositorio.Select(RepositorioMapper.ToDTO);
         }
 
-        public async Task<IEnumerable<Repositorio>> ListarPorNome(string nome)
+        public async Task<IEnumerable<RepositorioDTO>> ListarPorNomeAsync(string nome)
         {
-            return await _cliente.BuscarAsync(nome);
+            var repositorios = await _cliente.BuscarAsync(nome);
+
+            if (!repositorios.Any()) return Enumerable.Empty<RepositorioDTO>();
+
+            return repositorios.Select(RepositorioMapper.ToDTO);
         }
 
-        public async Task<IEnumerable<Repositorio>> ListarPorRelevanciaAsync(bool asc)
+        public async Task<IEnumerable<RepositorioRevelanteDTO>> ListarPorRelevanciaAsync(bool asc)
         {
             var repositorios = await _cliente.BuscarAsync();
 
-            foreach (var repositorio in repositorios)
-            {
-                repositorio.Relevancia = CalcularRelevancia(repositorio);
-            }
+            if (!repositorios.Any()) return Enumerable.Empty<RepositorioRevelanteDTO>();
 
-            return OrdenarPorRelevancia(repositorios, asc);
+            var repositoriosRelevantes = repositorios
+                .Select(repo => RepositorioMapper.ToRelevanteDTO(repo, CalcularRelevancia(repo)));
+
+            return OrdenarPorRelevancia(repositoriosRelevantes, asc);
         }
 
-        private static IEnumerable<Repositorio> OrdenarPorRelevancia(IEnumerable<Repositorio> repositorios, bool asc)
+        private static IEnumerable<RepositorioRevelanteDTO> OrdenarPorRelevancia(IEnumerable<RepositorioRevelanteDTO> repositorios, bool asc)
         {
             return asc
                 ? repositorios.OrderBy(r => r.Relevancia)
@@ -56,9 +66,9 @@ namespace Application.Services
                 RelevanciaConfig centralizando as constantes de relevância, facilitando a manutenção e reutilização.
             */
 
-            var estrelas = Math.Min(item.Stars, RelevanciaConfig.MAX_STARS);
-            var forks = Math.Min(item.Forks, RelevanciaConfig.MAX_FORKS);
-            var watchers = Math.Min(item.Watchers, RelevanciaConfig.MAX_WATCHERS);
+            var estrelas = Math.Min(item.StargazersCount, RelevanciaConfig.MAX_STARS);
+            var forks = Math.Min(item.ForksCount, RelevanciaConfig.MAX_FORKS);
+            var watchers = Math.Min(item.WatchersCount, RelevanciaConfig.MAX_WATCHERS);
 
             return (estrelas * RelevanciaConfig.PESO_STARS) +
                    (forks * RelevanciaConfig.PESO_FORKS) +

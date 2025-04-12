@@ -1,4 +1,4 @@
-﻿using Domain.Entities;
+﻿using Application.DTOs;
 
 namespace Application.Interfaces
 {
@@ -8,7 +8,7 @@ namespace Application.Interfaces
         /// Adiciona um repositório aos favoritos.
         /// </summary>
         /// <param name="favorito">O repositório a ser adicionado.</param>
-        void Adicionar(Repositorio favorito);
+        void Adicionar(RepositorioDTO favorito);
 
         /// <summary>
         /// Remove um repositório dos favoritos.
@@ -20,11 +20,11 @@ namespace Application.Interfaces
         /// Obtém um repositório favorito pelo ID.
         /// </summary>
         /// <param name="id">O ID do repositório.</param>
-        Repositorio ObterPorId(int id);
+        RepositorioDTO? ObterPorId(int id);
 
         /// <summary>
         /// Lista todos os repositórios favoritos.
         /// </summary>
-        IEnumerable<Repositorio> ListarFavoritos();
+        IEnumerable<RepositorioDTO> ListarFavoritos();
     }
 }

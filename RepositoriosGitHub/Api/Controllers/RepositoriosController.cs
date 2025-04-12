@@ -6,32 +6,29 @@ namespace WebApi.Controllers
     [Route("[controller]/[action]")]
     public class RepositoriosController : Controller
     {
-        private readonly IFavoritosStorage _favoritoStorage;
-        private readonly IRepositorioService repositorioService;
+        private readonly IRepositorioService _repositorioService;
 
-        public RepositoriosController(IFavoritosStorage favoritoStorage, 
-                                      IRepositorioService repositorioService)
+        public RepositoriosController(IRepositorioService repositorioService)
         {
-            _favoritoStorage = favoritoStorage;
-            this.repositorioService = repositorioService;
+            _repositorioService = repositorioService;
         }
         
-        [HttpGet("{nome}")]
-        public async Task<IActionResult> ListarPorNome(string nome)
+        [HttpGet]
+        public async Task<IActionResult> ListarPorNome([FromQuery]  string nome)
         {
-            return Ok(await repositorioService.ListarPorNome(nome));
+            return Ok(await _repositorioService.ListarPorNomeAsync(nome));
         }
 
-        [HttpGet("{nome}")]
-        public async Task<IActionResult> ListarDoUsuario(string nome)
+        [HttpGet]
+        public async Task<IActionResult> ListarDoUsuario([FromQuery]  string nome)
         {
-            return Ok(await repositorioService.ListarDoUsuario(nome));
+            return Ok(await _repositorioService.ListarDoUsuarioAsync(nome));
         }
 
-        [HttpGet("{asc}")]
-        public async Task<IActionResult> ListarPorRelevancia(bool asc)
+        [HttpGet]
+        public async Task<IActionResult> ListarPorRelevancia([FromQuery] string nome, [FromQuery] bool asc)
         {
-            return Ok(await repositorioService.ListarPorRelevanciaAsync(asc));
+            return Ok(await _repositorioService.ListarPorRelevanciaAsync(asc));
         }
     }
 }

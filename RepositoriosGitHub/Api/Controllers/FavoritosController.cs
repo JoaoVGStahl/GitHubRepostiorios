@@ -1,5 +1,5 @@
-﻿using Application.Interfaces;
-using Domain.Entities;
+﻿using Application.DTOs;
+using Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebApi.Controllers
@@ -14,10 +14,10 @@ namespace WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult AdicionarFavorito([FromBody] Repositorio favorito)
+        public IActionResult AdicionarFavorito([FromBody] RepositorioDTO favorito)
         {
             _favoritosService.Adicionar(favorito);
-            return Ok();
+            return NoContent();
         }
 
         [HttpGet]
@@ -30,7 +30,7 @@ namespace WebApi.Controllers
         public IActionResult RemoverFavorito(int id)
         {
             _favoritosService.Remover(id);
-            return Ok();
+            return NoContent();
         }
     }
 }

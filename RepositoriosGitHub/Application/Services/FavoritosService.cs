@@ -1,4 +1,6 @@
-﻿using Application.Interfaces;
+﻿using Application.DTOs;
+using Application.Interfaces;
+using Application.Mappers;
 using Domain.Entities;
 
 namespace Application.Services
@@ -12,19 +14,27 @@ namespace Application.Services
             _favoritosStorage = favoritosStorage;
         }
 
-        public void Adicionar(Repositorio favorito)
+        public void Adicionar(RepositorioDTO favorito)
         {
-            _favoritosStorage.Adicionar(favorito);
+            _favoritosStorage.Adicionar(RepositorioMapper.ToEntity(favorito));
         }
 
-        public IEnumerable<Repositorio> ListarFavoritos()
+        public IEnumerable<RepositorioDTO> ListarFavoritos()
         {
-            return _favoritosStorage.ListarFavoritos();
+            var favoritos = _favoritosStorage.ListarFavoritos();
+
+            if(!favoritos.Any()) return Enumerable.Empty<RepositorioDTO>();
+
+            return favoritos.Select(RepositorioMapper.ToDTO);
         }
 
-        public Repositorio ObterPorId(int id)
+        public RepositorioDTO? ObterPorId(int id)
         {
-            return _favoritosStorage.ObterPorId(id);
+            var favorito = _favoritosStorage.ObterPorId(id);
+
+            if (favorito == null) return null;
+
+            return RepositorioMapper.ToDTO(favorito);
         }
 
         public void Remover(int id)

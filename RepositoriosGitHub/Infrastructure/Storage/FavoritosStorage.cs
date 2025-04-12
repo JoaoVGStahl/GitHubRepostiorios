@@ -9,7 +9,7 @@ namespace Infrastructure.Storage
 
         public void Adicionar(Repositorio favorito)
         {
-            RepositoriosFavoritos.Add(RepositoriosFavoritos.Count + 1, favorito);
+            RepositoriosFavoritos.Add(favorito.Id, favorito);
         }
 
         public IEnumerable<Repositorio> ListarFavoritos()

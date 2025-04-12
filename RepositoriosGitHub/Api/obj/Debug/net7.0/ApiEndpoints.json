@@ -9,7 +9,7 @@
     "Parameters": [
       {
         "Name": "favorito",
-        "Type": "Domain.Entities.Repositorio",
+        "Type": "Application.DTOs.RepositorioDTO",
         "IsRequired": true
       }
     ],
@@ -44,7 +44,7 @@
   {
     "ContainingType": "WebApi.Controllers.RepositoriosController",
     "Method": "ListarDoUsuario",
-    "RelativePath": "Repositorios/ListarDoUsuario/{nome}",
+    "RelativePath": "Repositorios/ListarDoUsuario",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -52,7 +52,7 @@
       {
         "Name": "nome",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -60,7 +60,7 @@
   {
     "ContainingType": "WebApi.Controllers.RepositoriosController",
     "Method": "ListarPorNome",
-    "RelativePath": "Repositorios/ListarPorNome/{nome}",
+    "RelativePath": "Repositorios/ListarPorNome",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -68,7 +68,7 @@
       {
         "Name": "nome",
         "Type": "System.String",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
@@ -76,15 +76,20 @@
   {
     "ContainingType": "WebApi.Controllers.RepositoriosController",
     "Method": "ListarPorRelevancia",
-    "RelativePath": "Repositorios/ListarPorRelevancia/{asc}",
+    "RelativePath": "Repositorios/ListarPorRelevancia",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
+        "Name": "nome",
+        "Type": "System.String",
+        "IsRequired": false
+      },
+      {
         "Name": "asc",
         "Type": "System.Boolean",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []
