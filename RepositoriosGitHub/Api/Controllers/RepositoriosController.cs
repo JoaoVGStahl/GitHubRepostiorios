@@ -28,7 +28,7 @@ namespace WebApi.Controllers
         [HttpGet]
         public async Task<IActionResult> ListarPorRelevancia([FromQuery] string nome, [FromQuery] bool asc)
         {
-            return Ok(await _repositorioService.ListarPorRelevanciaAsync(asc));
+            return Ok(await _repositorioService.ListarPorRelevanciaAsync(nome,asc));
         }
     }
 }

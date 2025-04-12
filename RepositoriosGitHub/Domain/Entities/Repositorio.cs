@@ -7,6 +7,7 @@ namespace Domain.Entities
         public int Id { get; set; }
         public string? Name { get; set; }
         public string? Description { get; set; }
+
         [JsonPropertyName("html_url")]
         public string? HtmlUrl { get; set; }
 
@@ -27,8 +28,6 @@ namespace Domain.Entities
 
         [JsonPropertyName("open_issues_count")]
         public int OpenIssuesCount { get; set; }
-
         public string? Language { get; set; }
     }
-
 }

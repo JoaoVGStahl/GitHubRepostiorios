@@ -8,15 +8,15 @@ namespace Application.Services
 {
     public class RepositorioService : IRepositorioService
     {
-        private readonly IGitHubClient _cliente;
+        private readonly IGitHubClient _client;
         public RepositorioService(IGitHubClient gitHubClient)
         {
-            _cliente = gitHubClient;
+            _client = gitHubClient;
         }
 
         public async Task<IEnumerable<RepositorioDTO>> ListarDoUsuarioAsync(string nome)
         {
-            var repositorio = await _cliente.BuscarDoUsuario(nome);
+            var repositorio = await _client.BuscarDoUsuario(nome);
 
             if (!repositorio.Any()) return Enumerable.Empty<RepositorioDTO>();
 
@@ -25,16 +25,16 @@ namespace Application.Services
 
         public async Task<IEnumerable<RepositorioDTO>> ListarPorNomeAsync(string nome)
         {
-            var repositorios = await _cliente.BuscarAsync(nome);
+            var repositorios = await _client.BuscarAsync(nome);
 
             if (!repositorios.Any()) return Enumerable.Empty<RepositorioDTO>();
 
             return repositorios.Select(RepositorioMapper.ToDTO);
         }
 
-        public async Task<IEnumerable<RepositorioRevelanteDTO>> ListarPorRelevanciaAsync(bool asc)
+        public async Task<IEnumerable<RepositorioRevelanteDTO>> ListarPorRelevanciaAsync(string nome, bool asc)
         {
-            var repositorios = await _cliente.BuscarAsync();
+            var repositorios = await _client.BuscarAsync(nome);
 
             if (!repositorios.Any()) return Enumerable.Empty<RepositorioRevelanteDTO>();
 
@@ -77,7 +77,7 @@ namespace Application.Services
 
         public void Dispose()
         {
-            _cliente.Dispose();
+            _client.Dispose();
             GC.SuppressFinalize(this);
         }
     }

@@ -1,5 +1,6 @@
 ﻿using Application.Interfaces;
 using Domain.Entities;
+using System.Net;
 using System.Text.Json;
 
 namespace Infrastructure.Clients
@@ -15,17 +16,18 @@ namespace Infrastructure.Clients
 
         public async Task<IEnumerable<Repositorio>> BuscarDoUsuario(string nome)
         {
-            var response = await _httpClient.GetAsync($"/users/{nome}/repos");
+            var response = await _httpClient.GetAsync($"users/{nome}/repos");
 
             var json = await response.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode) throw new HttpRequestException("Teste", null, response.StatusCode);
+            if (!response.IsSuccessStatusCode) 
+                throw new HttpRequestException(ObterMenssagemExceptionUsuario(response.StatusCode), null, response.StatusCode);
 
             if (string.IsNullOrWhiteSpace(json))
                 return Enumerable.Empty<Repositorio>();
 
             return DesserializarRepositorios(json);
-        }
+        }        
 
         public async Task<IEnumerable<Repositorio>> BuscarAsync(string name)
         {
@@ -33,7 +35,8 @@ namespace Infrastructure.Clients
 
             var json = await response.Content.ReadAsStringAsync();
 
-            if (!response.IsSuccessStatusCode) throw new HttpRequestException("Teste",null, response.StatusCode);
+            if (!response.IsSuccessStatusCode) 
+                throw new HttpRequestException("Erro ao buscar repositórios no GitHub.", null, response.StatusCode);
 
             var document = JsonDocument.Parse(json).RootElement;
             var reposNode = document.GetProperty("items");
@@ -41,18 +44,14 @@ namespace Infrastructure.Clients
             return DesserializarRepositorios(reposNode.GetRawText());
         }
 
-        public async Task<IEnumerable<Repositorio>> BuscarAsync()
+        private static string? ObterMenssagemExceptionUsuario(HttpStatusCode statusCode)
         {
-            var response = await _httpClient.GetAsync($"search/repositories?q=%7bnome");
-
-            var json = await response.Content.ReadAsStringAsync();
-
-           if (!response.IsSuccessStatusCode) throw new HttpRequestException("Teste", null, response.StatusCode);
-
-            var document = JsonDocument.Parse(json).RootElement;
-            var reposNode = document.GetProperty("items");
-
-            return DesserializarRepositorios(reposNode.GetRawText());
+            return statusCode switch
+            {
+                HttpStatusCode.NotFound or HttpStatusCode.NoContent => "Usuário não encontrado",
+                HttpStatusCode.BadRequest => "Pesquisa inválida",
+                _ => null,
+            };
         }
 
         private static IEnumerable<Repositorio> DesserializarRepositorios(string json)
@@ -72,7 +71,6 @@ namespace Infrastructure.Clients
 
         public void Dispose()
         {
-            _httpClient.Dispose();
             GC.SuppressFinalize(this);
         }
     }

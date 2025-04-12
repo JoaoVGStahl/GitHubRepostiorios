@@ -1,5 +1,7 @@
-﻿using System.Net;
+﻿using System.Diagnostics;
+using System.Net;
 using System.Text.Json;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebApi.Middlewares
 {
@@ -30,28 +32,24 @@ namespace WebApi.Middlewares
 
         private static async Task HandleExceptionAsync(HttpContext context, Exception exception)
         {
-            var statusCode =exception switch
+            var statusCode = exception switch
             {
-                InvalidDataException => HttpStatusCode.BadRequest,
-                JsonException => HttpStatusCode.BadRequest,
-                _ => HttpStatusCode.InternalServerError
+                HttpRequestException httpEx => (int)(httpEx.StatusCode ?? HttpStatusCode.InternalServerError),
+                InvalidDataException or JsonException => (int)HttpStatusCode.BadRequest,
+                _ => (int)HttpStatusCode.InternalServerError
+            };
+
+            var message = exception switch
+            {
+                HttpRequestException httpEx => httpEx.Message ?? "Erro de requisição externa.",
+                InvalidDataException => exception.Message,
+                JsonException => "Erro ao processar os dados retornados.",
+                _ => "Ocorreu um erro inesperado. Tente novamente mais tarde."
             };
 
             var errorResponse = new
             {
-                Message = exception.Message ?? "Ocorreu um erro inesperado. Tente novamente mais tarde.",
-                StatusCode = (int)statusCode
-            };
-
-            await Response(context, (int)statusCode, errorResponse);
-        }
-
-        private static async Task HandleExceptionAsync(HttpContext context, HttpRequestException exception)
-        {
-            var statusCode = (int)(exception.StatusCode ?? HttpStatusCode.InternalServerError);
-            var errorResponse = new
-            {
-                Message = exception.Message ?? "Ocorreu um erro inesperado. Tente novamente mais tarde.",
+                Message = message,
                 StatusCode = statusCode
             };
 

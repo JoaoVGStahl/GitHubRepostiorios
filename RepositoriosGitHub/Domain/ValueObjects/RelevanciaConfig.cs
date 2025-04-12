@@ -8,6 +8,6 @@
 
         public const double PESO_STARS = 0.7;
         public const double PESO_FORKS = 1.2;
-        public const double PESO_WATCHERS = 0.5;
+        public const double PESO_WATCHERS = 0.3;
     }
 }

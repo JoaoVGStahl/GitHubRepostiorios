@@ -28,7 +28,7 @@
   {
     "ContainingType": "WebApi.Controllers.FavoritosController",
     "Method": "RemoverFavorito",
-    "RelativePath": "Favoritos/RemoverFavorito/{id}",
+    "RelativePath": "Favoritos/RemoverFavorito",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -36,7 +36,7 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
+        "IsRequired": false
       }
     ],
     "ReturnTypes": []

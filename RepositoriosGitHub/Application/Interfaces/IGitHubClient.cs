@@ -16,12 +16,6 @@ namespace Application.Interfaces
         Task<IEnumerable<Repositorio>> BuscarAsync(string name);
 
         /// <summary>
-        /// Busca todos os repositórios disponíveis.
-        /// </summary>
-        /// <returns>Uma lista de todos os repositórios.</returns>
-        Task<IEnumerable<Repositorio>> BuscarAsync();
-
-        /// <summary>
         /// Busca os repositórios de um usuário específico no GitHub.
         /// </summary>
         /// <param name="name">Nome do usuário cujos repositórios serão buscados.</param>

@@ -24,6 +24,6 @@ namespace Application.Interfaces
         /// </summary>
         /// <param name="asc">A ordenação deve ser crescente ou decrescente</param>
         /// <returns>Uma lista de repositório da pesquisa, ordenados por relevancia.</returns>
-        Task<IEnumerable<RepositorioRevelanteDTO>> ListarPorRelevanciaAsync(bool asc);
+        Task<IEnumerable<RepositorioRevelanteDTO>> ListarPorRelevanciaAsync(string nome,bool asc);
     }
 }
