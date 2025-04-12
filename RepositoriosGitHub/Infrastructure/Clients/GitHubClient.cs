@@ -17,8 +17,6 @@ namespace Infrastructure.Clients
         {
             var response = await _httpClient.GetAsync($"/users/{nome}/repos");
 
-            ValidarRespostaHttp(response);
-
             string json = await response.Content.ReadAsStringAsync();
 
             if (string.IsNullOrWhiteSpace(json))
@@ -30,8 +28,6 @@ namespace Infrastructure.Clients
         public async Task<IEnumerable<Repositorio>> BuscarAsync(string name)
         {
             var response = await _httpClient.GetAsync($"search/repositories?q=${name}");
-
-            ValidarRespostaHttp(response);
 
             var json = await response.Content.ReadAsStringAsync();
 
@@ -45,20 +41,12 @@ namespace Infrastructure.Clients
         {
             var response = await _httpClient.GetAsync($"search/repositories?q=%7bnome");
 
-            ValidarRespostaHttp(response);
-
             var json = await response.Content.ReadAsStringAsync();
 
             var document = JsonDocument.Parse(json).RootElement;
             var reposNode = document.GetProperty("items");
 
             return DesserializarRepositorios(reposNode.GetRawText());
-        }
-
-        private static void ValidarRespostaHttp(HttpResponseMessage response)
-        {
-            if (!response.IsSuccessStatusCode)
-                throw new HttpRequestException($"Erro ao buscar repositórios: {response.StatusCode} - {response.ReasonPhrase}");
         }
 
         private static IEnumerable<Repositorio> DesserializarRepositorios(string json)

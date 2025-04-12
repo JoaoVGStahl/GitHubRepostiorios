@@ -1,4 +1,4 @@
-﻿namespace Domain.Constantes
+﻿namespace Domain.ValueObjects
 {
     public static class RelevanciaConfig
     {

@@ -5,10 +5,10 @@ namespace Domain.Entities
     public class Repositorio
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Description { get; set; }
+        public string? Name { get; set; }
+        public string? Description { get; set; }
         [JsonPropertyName("html_url")]
-        public string HtmlUrl { get; set; }
+        public string? HtmlUrl { get; set; }
 
         [JsonPropertyName("stargazers_count")]
         public int StargazersCount { get; set; }
@@ -28,7 +28,7 @@ namespace Domain.Entities
         [JsonPropertyName("open_issues_count")]
         public int OpenIssuesCount { get; set; }
 
-        public string Language { get; set; }
+        public string? Language { get; set; }
     }
 
 }

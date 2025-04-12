@@ -1,8 +1,8 @@
 ﻿using Application.DTOs;
 using Application.Interfaces;
 using Application.Mappers;
-using Domain.Constantes;
 using Domain.Entities;
+using Domain.ValueObjects;
 
 namespace Application.Services
 {
