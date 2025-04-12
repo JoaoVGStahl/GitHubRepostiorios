@@ -21,10 +21,12 @@ namespace Application.Interfaces
         /// Obter um favorito pelo Id.
         /// </summary>
         /// <param name="id">Id do repositório.</param>
+        /// <returns>Um Repositorio ou null</returns>
         Repositorio ObterPorId(int id);
         /// <summary>
         /// Todos os favoritos.
         /// </summary>
+        /// <returns>Uma lista de todos os repositórios favoritos.</returns>
         IEnumerable<Repositorio> ListarFavoritos();
     }
 }

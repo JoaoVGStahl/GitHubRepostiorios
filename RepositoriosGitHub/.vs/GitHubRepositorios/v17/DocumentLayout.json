@@ -3,8 +3,20 @@
   "WorkspaceRootPath": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\api\\controllers\\repositorioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{76A91D10-A5EB-45AB-BDE1-9EC1C6890CF6}|Api\\WebApi.csproj|solutionrelative:api\\controllers\\repositorioscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\application\\interfaces\\irepositorioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|solutionrelative:application\\interfaces\\irepositorioservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\application\\interfaces\\igithubclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|solutionrelative:application\\interfaces\\igithubclient.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\application\\interfaces\\ifavoritosstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|solutionrelative:application\\interfaces\\ifavoritosstorage.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\application\\interfaces\\ifavoritosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{40704B76-E053-4DA5-9AEB-79F11170511B}|Application\\Application.csproj|solutionrelative:application\\interfaces\\ifavoritosservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -55,14 +67,53 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "RepositoriosController.cs",
-              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Controllers\\RepositoriosController.cs",
-              "RelativeDocumentMoniker": "Api\\Controllers\\RepositoriosController.cs",
-              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Api\\Controllers\\RepositoriosController.cs",
-              "RelativeToolTip": "Api\\Controllers\\RepositoriosController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAABKAAAAAAAAAA==",
+              "Title": "IRepositorioService.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IRepositorioService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IRepositorioService.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IRepositorioService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IRepositorioService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAABTAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-04-12T01:21:02.88Z",
+              "WhenOpened": "2025-04-12T01:28:55.756Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "IGitHubClient.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IGitHubClient.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IGitHubClient.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IGitHubClient.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IGitHubClient.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAA3AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T01:28:48.037Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IFavoritosStorage.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IFavoritosStorage.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IFavoritosStorage.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IFavoritosStorage.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IFavoritosStorage.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABwAAABBAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T01:28:17.178Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IFavoritosService.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IFavoritosService.cs",
+              "RelativeDocumentMoniker": "Application\\Interfaces\\IFavoritosService.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Application\\Interfaces\\IFavoritosService.cs",
+              "RelativeToolTip": "Application\\Interfaces\\IFavoritosService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB8AAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-12T01:27:19.621Z",
               "EditorCaption": ""
             }
           ]

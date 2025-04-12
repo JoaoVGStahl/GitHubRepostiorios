@@ -23,11 +23,13 @@ namespace Application.Interfaces
         /// Obtém um repositório favorito pelo ID.
         /// </summary>
         /// <param name="id">O ID do repositório.</param>
+        /// <returns>RepositorioDTO ou null</returns>
         RepositorioDTO? ObterPorId(int id);
 
         /// <summary>
-        /// Lista todos os repositórios favoritos.
+        /// todos os repositórios favoritos.
         /// </summary>
+        /// <returns>Uma lista de todos os favoritos.</returns>
         IEnumerable<RepositorioDTO> ListarFavoritos();
     }
 }
