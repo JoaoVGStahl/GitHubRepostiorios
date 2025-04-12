@@ -26,8 +26,8 @@ namespace WebApi.Controllers
             return Ok(_favoritosService.ListarFavoritos());
         }
 
-        [HttpDelete("{id}")]
-        public IActionResult RemoverFavorito(int id)
+        [HttpDelete]
+        public IActionResult RemoverFavorito([FromQuery] int id)
         {
             _favoritosService.Remover(id);
             return NoContent();
