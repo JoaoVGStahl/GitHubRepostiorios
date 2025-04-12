@@ -2,6 +2,9 @@
 
 namespace Application.Interfaces
 {
+    /// <summary>
+    /// Interface com operações de busca de repositórios.
+    /// </summary>
     public interface IRepositorioService : IDisposable
     {
         /// <summary>

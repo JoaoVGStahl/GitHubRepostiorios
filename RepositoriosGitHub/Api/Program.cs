@@ -8,10 +8,7 @@ builder.Services.AddSwaggerConfig();
 
 builder.Services.AddApplicationServices();
 
-
 builder.Services.AddCors();
-
-
 
 var app = builder.Build();
 
@@ -24,21 +21,3 @@ app.MapControllers();
 app.UseMiddleware<ExceptionHandler>();
 
 app.Run();
-
-//app.MapGet("/repos/me", async (IRepositorioService service) =>
-//{
-//    var result = await service.ListarRepositoriosDoUsuario("octocat");
-//    return Results.Ok(result);
-//});
-
-//app.MapPost("/favoritos", async (Favorito favorito, IRepositorioService service) =>
-//{
-//    await service.AdicionarFavorito(favorito);
-//    return Results.Ok();
-//});
-
-//app.MapGet("/favoritos", async (IRepositorioService service) =>
-//{
-//    var result = await service.ListarFavoritos();
-//    return Results.Ok(result);
-//});

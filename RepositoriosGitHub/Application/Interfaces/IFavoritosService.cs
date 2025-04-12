@@ -2,6 +2,9 @@
 
 namespace Application.Interfaces
 {
+    /// <summary>
+    /// Interface para gerenciar os repositórios favoritos.
+    /// </summary>
     public interface IFavoritosService : IDisposable 
     {
         /// <summary>
