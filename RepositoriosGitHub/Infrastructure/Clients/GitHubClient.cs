@@ -17,7 +17,9 @@ namespace Infrastructure.Clients
         {
             var response = await _httpClient.GetAsync($"/users/{nome}/repos");
 
-            string json = await response.Content.ReadAsStringAsync();
+            var json = await response.Content.ReadAsStringAsync();
+
+            if (!response.IsSuccessStatusCode) throw new HttpRequestException("Teste", null, response.StatusCode);
 
             if (string.IsNullOrWhiteSpace(json))
                 return Enumerable.Empty<Repositorio>();
@@ -31,6 +33,8 @@ namespace Infrastructure.Clients
 
             var json = await response.Content.ReadAsStringAsync();
 
+            if (!response.IsSuccessStatusCode) throw new HttpRequestException("Teste",null, response.StatusCode);
+
             var document = JsonDocument.Parse(json).RootElement;
             var reposNode = document.GetProperty("items");
 
@@ -42,6 +46,8 @@ namespace Infrastructure.Clients
             var response = await _httpClient.GetAsync($"search/repositories?q=%7bnome");
 
             var json = await response.Content.ReadAsStringAsync();
+
+           if (!response.IsSuccessStatusCode) throw new HttpRequestException("Teste", null, response.StatusCode);
 
             var document = JsonDocument.Parse(json).RootElement;
             var reposNode = document.GetProperty("items");
