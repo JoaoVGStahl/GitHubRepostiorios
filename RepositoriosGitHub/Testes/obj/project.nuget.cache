@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "dksPwXBGZkA=",
+  "dgSpecHash": "/rQfQyLWRlg=",
   "success": true,
   "projectFilePath": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Testes.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Jvito\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\Jvito\\.nuget\\packages\\coverlet.collector\\3.2.0\\coverlet.collector.3.2.0.nupkg.sha512",
+    "C:\\Users\\Jvito\\.nuget\\packages\\fluentassertions\\8.2.0\\fluentassertions.8.2.0.nupkg.sha512",
     "C:\\Users\\Jvito\\.nuget\\packages\\microsoft.codecoverage\\17.7.1\\microsoft.codecoverage.17.7.1.nupkg.sha512",
     "C:\\Users\\Jvito\\.nuget\\packages\\microsoft.net.test.sdk\\17.7.1\\microsoft.net.test.sdk.17.7.1.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",

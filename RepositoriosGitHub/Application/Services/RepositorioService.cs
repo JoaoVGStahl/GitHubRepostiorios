@@ -1,17 +1,18 @@
 ﻿using Application.DTOs;
 using Application.Interfaces;
 using Application.Mappers;
-using Domain.Entities;
-using Domain.ValueObjects;
 
 namespace Application.Services
 {
     public class RepositorioService : IRepositorioService
     {
         private readonly IGitHubClient _client;
-        public RepositorioService(IGitHubClient gitHubClient)
+        private readonly IRelevanciaService _relevanciaService;
+        public RepositorioService(IGitHubClient gitHubClient, 
+                                  IRelevanciaService relevanciaService)
         {
             _client = gitHubClient;
+            _relevanciaService = relevanciaService;
         }
 
         public async Task<IEnumerable<RepositorioDTO>> ListarDoUsuarioAsync(string nome)
@@ -39,7 +40,7 @@ namespace Application.Services
             if (!repositorios.Any()) return Enumerable.Empty<RepositorioRevelanteDTO>();
 
             var repositoriosRelevantes = repositorios
-                .Select(repo => RepositorioMapper.ToRelevanteDTO(repo, CalcularRelevancia(repo)));
+                .Select(repo => RepositorioMapper.ToRelevanteDTO(repo, _relevanciaService.Calcular(repo)));
 
             return OrdenarPorRelevancia(repositoriosRelevantes, asc);
         }
@@ -49,30 +50,6 @@ namespace Application.Services
             return asc
                 ? repositorios.OrderBy(r => r.Relevancia)
                 : repositorios.OrderByDescending(r => r.Relevancia);
-        }
-
-        private static double CalcularRelevancia(Repositorio item)
-        {
-            /*
-                A relevância é calculada com base nos seguintes critérios:
-                - Forks (maior peso): indicam o quanto um repositório é usado.
-                - Estrelas (peso médio): indica popularidade.
-                - Watchers (menor peso): indica interesse.
-
-                Limites máximos com Math.Min evita distorções.
-                Exemplo: um repositório extremamente curtido mas com poucos forks não será mais relevante
-                que um repositório com muitos forks.
-
-                RelevanciaConfig centralizando as constantes de relevância, facilitando a manutenção e reutilização.
-            */
-
-            var estrelas = Math.Min(item.StargazersCount, RelevanciaConfig.MAX_STARS);
-            var forks = Math.Min(item.ForksCount, RelevanciaConfig.MAX_FORKS);
-            var watchers = Math.Min(item.WatchersCount, RelevanciaConfig.MAX_WATCHERS);
-
-            return (estrelas * RelevanciaConfig.PESO_STARS) +
-                   (forks * RelevanciaConfig.PESO_FORKS) +
-                   (watchers * RelevanciaConfig.PESO_WATCHERS);
         }
 
         public void Dispose()

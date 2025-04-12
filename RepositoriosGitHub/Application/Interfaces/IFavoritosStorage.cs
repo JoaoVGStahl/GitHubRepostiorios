@@ -22,7 +22,7 @@ namespace Application.Interfaces
         /// </summary>
         /// <param name="id">Id do repositório.</param>
         /// <returns>Um Repositorio ou null</returns>
-        Repositorio ObterPorId(int id);
+        Repositorio? ObterPorId(int id);
         /// <summary>
         /// Todos os favoritos.
         /// </summary>

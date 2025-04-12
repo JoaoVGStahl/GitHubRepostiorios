@@ -17,7 +17,7 @@ namespace Infrastructure.Storage
             return RepositoriosFavoritos.Select(x => x.Value);
         }
 
-        public Repositorio ObterPorId(int id)
+        public Repositorio? ObterPorId(int id)
         {
             return RepositoriosFavoritos.FirstOrDefault(x => x.Key == id).Value;
         }

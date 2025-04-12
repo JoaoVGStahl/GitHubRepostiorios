@@ -1,6 +1,7 @@
 ﻿using Application.Interfaces;
 using Application.Services;
 using Infrastructure.Clients;
+using Infrastructure.Configurations;
 using Infrastructure.Storage;
 
 namespace WebApi.Configuracoes
@@ -12,12 +13,13 @@ namespace WebApi.Configuracoes
             services.AddScoped<IRepositorioService, RepositorioService>();
             services.AddScoped<IFavoritosService, FavoritosService>();
 
+            services.AddSingleton<IRelevanciaService, RelevanciaService>();
             services.AddSingleton<IFavoritosStorage, FavoritosStorage>();
 
             services.AddHttpClient<IGitHubClient, GitHubClient>(client =>
             {
-                client.BaseAddress = new Uri("https://api.github.com/");
-                client.DefaultRequestHeaders.UserAgent.ParseAdd("GitHubRepositorios");
+                client.BaseAddress = new Uri(GitHubClientConfiguration.BaseUrl);
+                client.DefaultRequestHeaders.UserAgent.ParseAdd(GitHubClientConfiguration.UserAgent);
             });
         }
     }
