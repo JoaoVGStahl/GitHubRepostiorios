@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { RepositorioDTO } from '../../domain/models/repositorio.model';
 import { RepositoriosApiProvider } from '../../core/providers/repositorio.api.provider';
-import { RepositorioItemComponent } from '../shareds/repositorio-item/repositorio-item.component';
+import { RepositorioItemComponent } from '../../shared/components/repositorio-item/repositorio-item.component';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';

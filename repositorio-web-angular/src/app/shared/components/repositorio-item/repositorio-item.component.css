@@ -1,0 +1,69 @@
+.card-body {
+    text-align: left;
+}
+
+.repo-card {
+    background-color: var(--card-background);
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
+}
+
+.repo-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px var(--shadow-color);
+}
+
+.card-title {
+    color: var(--text-color);
+}
+
+.text-muted {
+    color: var(--text-secondary) !important;
+}
+
+.badge {
+    background-color: var(--card-background) !important;
+    color: var(--text-color) !important;
+    border-color: var(--border-color) !important;
+}
+
+/* Botão Adicionar Favorito */
+.btn-outline-warning {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-warning:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--button-text-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+/* Botão Remover Favorito */
+.btn-warning {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: var(--button-text-color);
+    transition: all 0.3s ease;
+}
+
+.btn-warning:hover {
+    background-color: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: var(--button-text-color);
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px var(--shadow-color);
+}
+
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

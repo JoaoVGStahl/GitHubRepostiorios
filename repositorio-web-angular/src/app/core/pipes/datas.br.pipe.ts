@@ -3,7 +3,7 @@ import { formatDate } from '@angular/common';
 
 @Pipe({
     name: 'dataBr',
-    standalone: true // se for usar standalone
+    standalone: true
 })
 export class DataBrPipe implements PipeTransform {
     transform(value: Date): string {

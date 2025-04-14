@@ -1,21 +1,24 @@
 <div class="container">
+  <div class="d-flex justify-content-end mb-3">
+    <app-theme-toggle></app-theme-toggle>
+  </div>
   <h1>Bem-vindo</h1>
   <p>Este é um projeto desenvolvido como parte de um desafio técnico para a vaga de Desenvolvedor backend para ABC
     Fitness.</p>
   <div class="row">
     <div class="col-12 mb-2">
-      <button type="button" class="btn btn-primary w-100" (click)="navegar('favoritos')">Meus favoritos</button>
+      <button type="button" class="btn btn-primary w-100" (click)="navegarParaFavoritos()">Meus favoritos</button>
     </div>
     <div class="col-12 mb-2">
-      <button type="button" class="btn btn-primary w-100" (click)="navegar('repositorios')">Pesquisar
+      <button type="button" class="btn btn-primary w-100" (click)="navegarParaRepositorios()">Pesquisar
         repositórios públicos</button>
     </div>
     <div class="col-12 mb-2">
-      <button type="button" class="btn btn-primary w-100" (click)="navegar('repositorios-relevantes')">Pesquisar
+      <button type="button" class="btn btn-primary w-100" (click)="navegarParaRepositoriosRelevantes()">Pesquisar
         repositórios relevantes</button>
     </div>
     <div class="col-12 mb-2">
-      <button type="button" class="btn btn-primary w-100" (click)="navegar('repositorios-usuario')">Pesquisar
+      <button type="button" class="btn btn-primary w-100" (click)="navegarParaRepositoriosUsuario()">Pesquisar
         repositórios por usuário</button>
     </div>
   </div>

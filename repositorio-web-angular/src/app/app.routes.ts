@@ -5,6 +5,7 @@ import { FavoritosComponent } from './pages/favoritos/favoritos.component';
 import { RepositoriosRelevantesComponent } from './pages/repositorios-relevantes/repositorios-relevantes.component';
 import { RepositoriosUsuarioComponent } from './pages/repositorios-usuario/repositorios-usuario.component';
 import { AppRoutes } from './domain/consts/routes.const';
+import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   {
@@ -26,5 +27,9 @@ export const routes: Routes = [
   {
     path: AppRoutes.favoritos,
     loadComponent: () => FavoritosComponent
-  }
+  },
+  {
+    path: '**',
+    component: NotFoundComponent,
+  },
 ];

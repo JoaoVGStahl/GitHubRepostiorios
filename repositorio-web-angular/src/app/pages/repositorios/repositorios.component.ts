@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RepositoriosApiProvider } from '../../core/providers/repositorio.api.provider';
 import { RepositorioDTO } from '../../domain/models/repositorio.model';
-import { RepositorioItemComponent } from '../shareds/repositorio-item/repositorio-item.component';
+import { RepositorioItemComponent } from '../../shared/components/repositorio-item/repositorio-item.component';
 
 @Component({
   selector: 'app-repositorios',
