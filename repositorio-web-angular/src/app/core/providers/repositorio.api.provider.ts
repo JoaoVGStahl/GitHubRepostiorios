@@ -22,6 +22,6 @@ export class RepositoriosApiProvider {
   }
 
   listarPorUsuario(nome: string): Observable<RepositorioDTO[]> {
-    return this.http.get<RepositorioDTO[]>(`${this.baseUrl}ListarDoUsuario?termo=${nome}`);
+    return this.http.get<RepositorioDTO[]>(`${this.baseUrl}ListarDoUsuario?nome=${nome}`);
   }
 }

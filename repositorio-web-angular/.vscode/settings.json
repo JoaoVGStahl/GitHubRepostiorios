@@ -3,6 +3,7 @@
         "**/.git": true,
         "**/.svn": true,
         "**/.hg": true,
+        "**/CVS": true,
         "**/.DS_Store": true,
         "**/Thumbs.db": true,
         ".angular/cache/19.2.6/repositorio-web-angular": true,

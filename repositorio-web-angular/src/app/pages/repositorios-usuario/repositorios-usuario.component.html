@@ -1,0 +1,26 @@
+<div class="container">
+    <h2 class="mb-4 fw-semibold">Buscar repositórios</h2>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" placeholder="Digite nome de um repositório"
+            aria-label="Digite nome de um repositório" [(ngModel)]="nomeUsuario" (keyup.enter)="buscar()" />
+        <button class="btn btn-primary" (click)="buscar()" type="button" id="botao-buscar">Buscar</button>
+    </div>
+
+    <div *ngIf="buscando">
+
+        <div class="spinner-border text-primary" role="status">
+            <span class="visually-hidden"></span>
+        </div>
+        <p>Buscando repositórios...</p>
+    </div>
+    <div *ngIf="!buscando">
+        <div *ngIf="repositoriosRelevantes.length > 0 && !buscando">
+            <div *ngFor="let repo of repositoriosRelevantes">
+                <app-repositorio-item [repositorio]="repo"></app-repositorio-item>
+            </div>
+        </div>
+        <p *ngIf="repositoriosRelevantes.length > 0">Total de repositórios encontrados: {{ repositoriosRelevantes.length
+            }}</p>
+    </div>
+
+</div>

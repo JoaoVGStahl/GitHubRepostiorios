@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RepositoriosApiProvider } from '../../core/providers/repositorio.api.provider';
@@ -9,19 +9,17 @@ import { RepositorioItemComponent } from '../shareds/repositorio-item/repositori
   selector: 'app-repositorios',
   standalone: true,
   imports: [CommonModule, FormsModule, RepositorioItemComponent],
-  templateUrl: './repos.component.html',
-  styleUrls: ['./repos.component.css']
+  templateUrl: './repositorios.component.html',
+  styleUrls: ['./repositorios.component.css']
 })
-export class RepositoriosComponent implements OnInit {
+export class RepositoriosComponent {
   nomeRepositorio: string = '';
   repositorios: RepositorioDTO[] = [];
   buscando = false;
 
   constructor(private repositorioService: RepositoriosApiProvider) { }
 
-  ngOnInit(): void { }
-
-  buscarRepos(): void {
+  buscar(): void {
     if (this.buscando) return;
 
     if (this.nomeRepositorio.trim() === '') {

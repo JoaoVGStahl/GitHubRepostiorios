@@ -12,17 +12,8 @@ import { Router } from '@angular/router';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
-  repos: string = '';
-  repositorios: any[] = [];
-
-  constructor(private repositorioService: RepositoriosApiProvider, private router: Router) { }
-
-  ngOnInit(): void { }
-
-  buscarRepos(): void {
-    if (!this.repos) return;
-  }
+export class HomeComponent {
+  constructor(private router: Router) { }
 
   navegar(rota: string): void {
     this.router.navigate([rota]);

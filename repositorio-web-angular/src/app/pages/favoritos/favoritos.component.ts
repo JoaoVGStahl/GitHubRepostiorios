@@ -12,12 +12,13 @@ import { FormsModule } from '@angular/forms';
   styleUrl: './favoritos.component.css'
 })
 export class FavoritosComponent implements OnInit {
-  ngOnInit(): void {
-    this.listarFavoritos();
-  }
   favoritos: RepositorioDTO[] = [];
 
   constructor(private favoritosService: FavoritosService) { }
+
+  ngOnInit(): void {
+    this.listarFavoritos();
+  }
 
   listarFavoritos() {
     this.favoritosService.listar()
