@@ -27,36 +27,22 @@
     border-color: var(--border-color) !important;
 }
 
-/* Botão Adicionar Favorito */
-.btn-outline-warning {
-    color: var(--primary-color);
-    border-color: var(--primary-color);
-    background-color: transparent;
+/* Botão de favorito */
+button[mat-icon-button] {
+    color: var(--text-secondary);
     transition: all 0.3s ease;
 }
 
-.btn-outline-warning:hover {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--button-text-color);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px var(--shadow-color);
+button[mat-icon-button]:hover {
+    transform: scale(1.1);
 }
 
-/* Botão Remover Favorito */
-.btn-warning {
-    background-color: var(--primary-color);
-    border-color: var(--primary-color);
-    color: var(--button-text-color);
-    transition: all 0.3s ease;
+button[mat-icon-button].favorito {
+    color: #ffd700;
 }
 
-.btn-warning:hover {
-    background-color: var(--primary-hover);
-    border-color: var(--primary-hover);
-    color: var(--button-text-color);
-    transform: translateY(-1px);
-    box-shadow: 0 2px 4px var(--shadow-color);
+button[mat-icon-button].favorito:hover {
+    color: #ffd700;
 }
 
 a {

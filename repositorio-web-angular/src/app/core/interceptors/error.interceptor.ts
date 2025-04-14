@@ -5,7 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
 
-const getErrorMessage = (error: any): { title: string; message: string } => {
+const obterMensagemErro = (error: any): { title: string; message: string } => {
     if (error.error instanceof ErrorEvent) {
         return {
             title: 'Erro de Comunicação',
@@ -52,7 +52,7 @@ export const errorInterceptor: HttpInterceptorFn = (req, next) => {
 
     return next(req).pipe(
         catchError((error) => {
-            const { title, message } = getErrorMessage(error);
+            const { title, message } = obterMensagemErro(error);
 
             dialog.open(ErrorDialogComponent, {
                 data: { title, message },

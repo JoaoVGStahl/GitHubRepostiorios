@@ -9,6 +9,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 export const routes: Routes = [
   {
+    path: '',
+    redirectTo: AppRoutes.home,
+    pathMatch: 'full'
+  },
+  {
     path: AppRoutes.home,
     loadComponent: () => HomeComponent
   },

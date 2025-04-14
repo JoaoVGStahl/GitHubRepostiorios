@@ -7,16 +7,10 @@
                 </h5>
                 <p class="text-muted small mb-2">{{repositorio.descricao}}</p>
             </div>
-            <div *ngIf="!repositorio.favorito">
-                <button type="button" class="btn btn-outline-warning" (click)="toogleFavorito()">
-                    Adicionar favorito
-                </button>
-            </div>
-            <div *ngIf="repositorio.favorito">
-                <button type="button" class="btn btn-warning" (click)="toogleFavorito()">
-                    Remover favorito
-                </button>
-            </div>
+            <button mat-icon-button [class.favorito]="repositorio.favorito" (click)="toogleFavorito()"
+                [matTooltip]="repositorio.favorito ? 'Remover dos favoritos' : 'Adicionar aos favoritos'">
+                <mat-icon>{{repositorio.favorito ? 'star' : 'star_border'}}</mat-icon>
+            </button>
         </div>
 
         <div class="row text-muted small mb-3">

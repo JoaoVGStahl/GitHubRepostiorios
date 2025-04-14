@@ -1,14 +1,19 @@
-import { Injectable } from '@angular/core';
+import { Injectable, PLATFORM_ID, Inject } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
+import { isPlatformBrowser } from '@angular/common';
 
 @Injectable({
     providedIn: 'root'
 })
 export class ThemeService {
     private isDarkTheme = new BehaviorSubject<boolean>(true);
+    private isBrowser: boolean;
 
-    constructor() {
-        this.aplicarTema(true);
+    constructor(@Inject(PLATFORM_ID) platformId: Object) {
+        this.isBrowser = isPlatformBrowser(platformId);
+        if (this.isBrowser) {
+            this.aplicarTema(true);
+        }
     }
 
     get temaEscuro$() {
@@ -22,6 +27,8 @@ export class ThemeService {
     }
 
     private aplicarTema(isDark: boolean): void {
-        document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        if (this.isBrowser) {
+            document.documentElement.setAttribute('data-theme', isDark ? 'dark' : 'light');
+        }
     }
 } 

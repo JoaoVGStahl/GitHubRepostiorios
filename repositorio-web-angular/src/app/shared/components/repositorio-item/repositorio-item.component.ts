@@ -4,12 +4,16 @@ import { FavoritosService } from '../../../application/services/favoritos.servic
 import { CommonModule } from '@angular/common';
 import { DataBrPipe } from "../../../core/pipes/datas.br.pipe";
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @Component({
   selector: 'app-repositorio-item',
-  imports: [CommonModule, DataBrPipe],
+  standalone: true,
+  imports: [CommonModule, DataBrPipe, MatButtonModule, MatIconModule, MatTooltipModule],
   templateUrl: './repositorio-item.component.html',
-  styleUrl: './repositorio-item.component.css'
+  styleUrls: ['./repositorio-item.component.css']
 })
 export class RepositorioItemComponent implements OnInit {
   @Input({ required: true }) repositorio!: RepositorioDTO;
@@ -23,6 +27,10 @@ export class RepositorioItemComponent implements OnInit {
 
   ngOnInit() {
     this.urlSegura = this.sanitizer.bypassSecurityTrustUrl(this.repositorio.url);
+  }
+
+  get urlSeguraString(): string {
+    return this.repositorio.url.replace('api.', '').replace('/repos', '');
   }
 
   toogleFavorito(): void {
