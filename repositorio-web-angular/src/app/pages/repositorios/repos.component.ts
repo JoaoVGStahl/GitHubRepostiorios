@@ -1,27 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
-import { RepositorioService } from '../../services/repositorio.service';
+import { RepositoriosApiProvider } from '../../core/providers/repositorio.api.provider';
+import { RepositorioDTO } from '../../domain/models/repositorio.model';
+import { RepositorioItemComponent } from '../shareds/repositorio-item/repositorio-item.component';
 
 @Component({
   selector: 'app-repositorios',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule], 
+  imports: [CommonModule, FormsModule, RepositorioItemComponent],
   templateUrl: './repos.component.html',
   styleUrls: ['./repos.component.css']
 })
 export class RepositoriosComponent implements OnInit {
-  repos: string = '';
-  repositorios: any[] = [];
+  nomeRepositorio: string = '';
+  repositorios: RepositorioDTO[] = [];
+  buscando = false;
 
-  constructor(private repositorioService: RepositorioService) {}
+  constructor(private repositorioService: RepositoriosApiProvider) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
   buscarRepos(): void {
-    if (!this.repos) return;
+    if (this.buscando) return;
 
-    this.repositorioService.getRepositorios(this.repos);
+    if (this.nomeRepositorio.trim() === '') {
+      this.repositorios = [];
+      return;
+    }
+
+    this.buscando = true;
+    this.repositorioService.listar(this.nomeRepositorio)
+      .subscribe(repositorios => {
+        this.repositorios = repositorios;
+        this.buscando = false;
+      });
   }
-}
+} 

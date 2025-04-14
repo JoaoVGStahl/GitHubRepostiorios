@@ -1,15 +1,26 @@
-
 <div class="container">
-  <h2>Buscar Repositórios</h2>
-  <input type="text" [(ngModel)]="repos" placeholder="Digite o nome do usuário GitHub" />
-  <button (click)="buscarRepos()">Buscar</button>
-
-  <div *ngIf="repositorios.length > 0">
-    <h3>Repositórios de {{ repos }}</h3>
-    <ul>
-      <li *ngFor="let repo of repositorios">
-        <a [href]="repo.html_url" target="_blank">{{ repo.name }}</a>
-      </li>
-    </ul>
+  <h2 class="mb-4 fw-semibold">Buscar repositórios</h2>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" placeholder="Digite nome de um repositório"
+      aria-label="Digite nome de um repositório" aria-describedby="button-addon2" [(ngModel)]="nomeRepositorio"
+      (keyup.enter)="buscarRepos()" />
+    <button class="btn btn-primary" (click)="buscarRepos()" type="button" id="button-addon2">Buscar</button>
   </div>
+
+  <div *ngIf="buscando">
+
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden"></span>
+    </div>
+    <p>Buscando repositórios...</p>
+  </div>
+  <div *ngIf="!buscando">
+    <div *ngIf="repositorios.length > 0 && !buscando">
+      <div *ngFor="let repo of repositorios">
+        <app-repositorio-item [repositorio]="repo"></app-repositorio-item>
+      </div>
+    </div>
+    <p *ngIf="repositorios.length > 0">Total de repositórios encontrados: {{ repositorios.length }}</p>
+  </div>
+
 </div>

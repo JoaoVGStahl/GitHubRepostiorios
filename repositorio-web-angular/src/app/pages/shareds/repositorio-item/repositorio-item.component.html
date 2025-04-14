@@ -1,0 +1,45 @@
+<div class="card repo-card mb-4">
+    <div class="card-body">
+        <div class="d-flex justify-content-between align-items-start mb-2">
+            <div>
+                <h5 class="card-title mb-1">
+                    <a href="https://github.com/usuario/repositorio1" target="_blank"
+                        class="text-decoration-none text-dark">
+                        {{repositorio.nome}}
+                    </a>
+                </h5>
+                <p class="text-muted small mb-2">{{repositorio.descricao}}</p>
+            </div>
+            <div *ngIf="!repositorio.favorito">
+                <button type="button" class="btn btn-outline-warning" (click)="toogleFavorito()">
+                    Adicionar favorito
+                </button>
+            </div>
+            <div *ngIf="repositorio.favorito">
+                <button type="button" class="btn btn-warning" (click)="toogleFavorito()">
+                    Remover favorito
+                </button>
+            </div>
+        </div>
+
+        <div class="row text-muted small mb-3">
+            <div class="col-md-6">
+                <div><strong>Linguagem: </strong> {{repositorio.linguagem}}</div>
+                <div>
+                    <a [href]="urlSegura" target="_blank">Ver no GitHub</a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div><strong>Última atualização:</strong> {{ repositorio.dataUltimaAtualizacao | dataBr }}</div>
+                <div><strong>Criado em:</strong> {{ repositorio.dataCriacao | dataBr }}</div>
+            </div>
+        </div>
+
+        <div class="d-flex flex-wrap gap-2">
+            <span class="badge rounded-pill text-bg-light border"> {{repositorio.stars}} Stars</span>
+            <span class="badge rounded-pill text-bg-light border"> {{repositorio.forks}} Forks</span>
+            <span class="badge rounded-pill text-bg-light border"> {{repositorio.watchers}} Watchers</span>
+            <span class="badge rounded-pill text-bg-light border"> {{repositorio.issues}} Issues</span>
+        </div>
+    </div>
+</div>

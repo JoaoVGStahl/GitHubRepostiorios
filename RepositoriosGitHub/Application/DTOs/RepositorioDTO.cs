@@ -13,5 +13,6 @@
         public int Watchers { get; set; }
         public int Issues { get; set; }
         public string? Linguagem { get; set; }
+        public bool Favorito { get; set; }
     }
 }

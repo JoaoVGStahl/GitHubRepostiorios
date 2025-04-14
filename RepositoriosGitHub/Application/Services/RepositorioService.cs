@@ -8,11 +8,14 @@ namespace Application.Services
     {
         private readonly IGitHubClient _client;
         private readonly IRelevanciaService _relevanciaService;
-        public RepositorioService(IGitHubClient gitHubClient, 
-                                  IRelevanciaService relevanciaService)
+        private readonly IFavoritosStorage _favoritosStorage;
+        public RepositorioService(IGitHubClient gitHubClient,
+                                  IRelevanciaService relevanciaService,
+                                  IFavoritosStorage favoritosStorage)
         {
             _client = gitHubClient;
             _relevanciaService = relevanciaService;
+            _favoritosStorage = favoritosStorage;
         }
 
         public async Task<IEnumerable<RepositorioDTO>> ListarDoUsuarioAsync(string nome)
@@ -21,7 +24,7 @@ namespace Application.Services
 
             if (!repositorio.Any()) return Enumerable.Empty<RepositorioDTO>();
 
-            return repositorio.Select(RepositorioMapper.ToDTO);
+            return repositorio.Select((r) => RepositorioMapper.ToDTO(r, _favoritosStorage.ObterPorId(r.Id) != null));
         }
 
         public async Task<IEnumerable<RepositorioDTO>> ListarPorNomeAsync(string nome)
@@ -30,7 +33,7 @@ namespace Application.Services
 
             if (!repositorios.Any()) return Enumerable.Empty<RepositorioDTO>();
 
-            return repositorios.Select(RepositorioMapper.ToDTO);
+            return repositorios.Select((r) => RepositorioMapper.ToDTO(r, _favoritosStorage.ObterPorId(r.Id) != null));
         }
 
         public async Task<IEnumerable<RepositorioRevelanteDTO>> ListarPorRelevanciaAsync(string nome, bool asc)

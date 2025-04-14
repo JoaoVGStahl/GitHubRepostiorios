@@ -1,0 +1,12 @@
+<div class="container my-5">
+    <h2 class="mb-4 fw-semibold">Repositórios favoritos</h2>
+    <div *ngIf="favoritos.length > 0">
+        <div *ngFor="let repo of favoritos">
+            <app-repositorio-item [repositorio]="repo"
+                (onRemovidoFavoritos)="onRemovidoFavoritos(repo)"></app-repositorio-item>
+        </div>
+    </div>
+    <div *ngIf="favoritos.length === 0">
+        <p>Nenhum repositório favorito encontrado.</p>
+    </div>
+</div>

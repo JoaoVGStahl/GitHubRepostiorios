@@ -5,7 +5,7 @@ namespace Application.Mappers
 {
     public static class RepositorioMapper
     {
-        public static RepositorioDTO ToDTO(Repositorio entity)
+        public static RepositorioDTO ToDTO(Repositorio entity, bool favorito = true)
         {
             return new RepositorioDTO
             {
@@ -19,7 +19,8 @@ namespace Application.Mappers
                 DataCriacao = entity.CreatedAt,
                 DataUltimaAtualizacao = entity.UpdatedAt,
                 Issues = entity.OpenIssuesCount,
-                Linguagem = entity.Language 
+                Linguagem = entity.Language,
+                Favorito = favorito
             };
         }
 

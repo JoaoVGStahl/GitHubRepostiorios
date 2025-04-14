@@ -4,7 +4,18 @@
         "**/.svn": true,
         "**/.hg": true,
         "**/.DS_Store": true,
-        "**/Thumbs.db": true
+        "**/Thumbs.db": true,
+        ".angular/cache/19.2.6/repositorio-web-angular": true,
+        ".angular/cache/19.2.6": true,
+        "node_modules": true,
+        ".angular/cache": true,
+        ".angular": true
     },
-    "hide-files.files": []
+    "hide-files.files": [
+        ".angular/cache/19.2.6/repositorio-web-angular",
+        ".angular/cache/19.2.6",
+        "node_modules",
+        ".angular/cache",
+        ".angular"
+    ]
 }

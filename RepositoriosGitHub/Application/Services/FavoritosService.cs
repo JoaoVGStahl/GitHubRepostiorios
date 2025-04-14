@@ -24,7 +24,7 @@ namespace Application.Services
 
             if(!favoritos.Any()) return Enumerable.Empty<RepositorioDTO>();
 
-            return favoritos.Select(RepositorioMapper.ToDTO);
+            return favoritos.Select((r) => RepositorioMapper.ToDTO(r));
         }
 
         public RepositorioDTO? ObterPorId(int id)
