@@ -1,7 +1,20 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\testes\\services\\repositorioservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|solutionrelative:testes\\services\\repositorioservicetests.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\testes\\services\\favoritosservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|solutionrelative:testes\\services\\favoritosservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|d:\\dev\\projects\\abcfitness\\repositoriosgithub\\testes\\services\\relevanciaservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{8165BB83-3F72-4D2D-82A1-D99D639392AD}|Testes\\Testes.csproj|solutionrelative:testes\\services\\relevanciaservicetestes.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 1,
@@ -9,8 +22,47 @@
       "DocumentGroups": [
         {
           "DockedHeight": 200,
-          "SelectedChildIndex": -1,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RepositorioServiceTests.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RepositorioServiceTests.cs",
+              "RelativeDocumentMoniker": "Testes\\Services\\RepositorioServiceTests.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RepositorioServiceTests.cs",
+              "RelativeToolTip": "Testes\\Services\\RepositorioServiceTests.cs",
+              "ViewState": "AgIAAJsAAAAAAAAAAAAiwKgAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T22:18:49.595Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "FavoritosServiceTestes.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\FavoritosServiceTestes.cs",
+              "RelativeDocumentMoniker": "Testes\\Services\\FavoritosServiceTestes.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\FavoritosServiceTestes.cs",
+              "RelativeToolTip": "Testes\\Services\\FavoritosServiceTestes.cs",
+              "ViewState": "AgIAAHsAAAAAAAAAAAAiwIIAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T22:18:27.457Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RelevanciaServiceTestes.cs",
+              "DocumentMoniker": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RelevanciaServiceTestes.cs",
+              "RelativeDocumentMoniker": "Testes\\Services\\RelevanciaServiceTestes.cs",
+              "ToolTip": "D:\\dev\\projects\\ABCFitness\\RepositoriosGitHub\\Testes\\Services\\RelevanciaServiceTestes.cs",
+              "RelativeToolTip": "Testes\\Services\\RelevanciaServiceTestes.cs",
+              "ViewState": "AgIAAHYAAAAAAAAAAAAiwIMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-04-14T22:17:52.348Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:131:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
