@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
+import { AppRoutes } from '../../domain/consts/routes.const';
 
 @Component({
   selector: 'app-not-found',
@@ -8,4 +9,10 @@ import { RouterModule } from '@angular/router';
   templateUrl: './not-found.component.html',
   styleUrls: ['./not-found.component.css']
 })
-export class NotFoundComponent { }
+export class NotFoundComponent {
+  constructor(private router: Router) { }
+
+  voltarParaHome(): void {
+    this.router.navigate([AppRoutes.home]);
+  }
+}

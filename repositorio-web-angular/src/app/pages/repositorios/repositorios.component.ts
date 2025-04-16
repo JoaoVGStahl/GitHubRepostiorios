@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AppRoutes } from '../../domain/consts/routes.const';
 import { RepositoriosApiProvider } from '../../core/providers/repositorio.api.provider';
 import { RepositorioDTO } from '../../domain/models/repositorio.model';
 import { RepositorioItemComponent } from '../../shared/components/repositorio-item/repositorio-item.component';
@@ -17,7 +19,10 @@ export class RepositoriosComponent {
   repositorios: RepositorioDTO[] = [];
   buscando = false;
 
-  constructor(private repositorioService: RepositoriosApiProvider) { }
+  constructor(
+    private repositorioService: RepositoriosApiProvider,
+    private router: Router
+  ) { }
 
   buscar(): void {
     if (this.buscando) return;
@@ -33,5 +38,9 @@ export class RepositoriosComponent {
         this.repositorios = repositorios;
         this.buscando = false;
       });
+  }
+
+  voltarParaHome(): void {
+    this.router.navigate([AppRoutes.home]);
   }
 } 

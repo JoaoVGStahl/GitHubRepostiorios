@@ -4,6 +4,8 @@ import { RepositoriosApiProvider } from '../../core/providers/repositorio.api.pr
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { RepositorioItemComponent } from '../../shared/components/repositorio-item/repositorio-item.component';
+import { Router } from '@angular/router';
+import { AppRoutes } from '../../domain/consts/routes.const';
 
 @Component({
   selector: 'app-repositorios-usuario',
@@ -16,7 +18,10 @@ export class RepositoriosUsuarioComponent implements OnInit {
   repositoriosRelevantes: RepositorioDTO[] = [];
   buscando = false;
 
-  constructor(private repositorioService: RepositoriosApiProvider) { }
+  constructor(
+    private repositorioService: RepositoriosApiProvider,
+    private router: Router
+  ) { }
 
   ngOnInit(): void {
     this.nomeUsuario = 'JoaoVGStahl';
@@ -35,5 +40,9 @@ export class RepositoriosUsuarioComponent implements OnInit {
         this.repositoriosRelevantes = repositorios;
         this.buscando = false;
       });
+  }
+
+  voltarParaHome(): void {
+    this.router.navigate([AppRoutes.home]);
   }
 } 

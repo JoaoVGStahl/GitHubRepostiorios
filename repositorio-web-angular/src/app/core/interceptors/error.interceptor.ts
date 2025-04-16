@@ -5,46 +5,19 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ErrorDialogComponent } from '../../shared/components/error-dialog/error-dialog.component';
 
-const obterMensagemErro = (error: any): { title: string; message: string } => {
-    if (error.error instanceof ErrorEvent) {
-        return {
-            title: 'Erro de Comunicação',
-            message: `Erro: ${error.error.message}`
-        };
-    }
+const obterMensagemErro = (httpError: any): { title: string; message: string } => {
+    const errorMapping: Record<number, string> = {
+        400: 'Requisição Inválida',
+        401: 'Não Autorizado',
+        403: 'Acesso Negado',
+        404: 'Recurso Não Encontrado',
+        500: 'Erro Interno'
+    };
 
-    switch (error.status) {
-        case 400:
-            return {
-                title: 'Requisição Inválida',
-                message: 'Verifique os dados enviados e tente novamente.'
-            };
-        case 401:
-            return {
-                title: 'Não Autorizado',
-                message: 'Faça login novamente para continuar.'
-            };
-        case 403:
-            return {
-                title: 'Acesso Negado',
-                message: 'Você não tem permissão para realizar esta ação.'
-            };
-        case 404:
-            return {
-                title: 'Recurso Não Encontrado',
-                message: 'O recurso solicitado não foi encontrado.'
-            };
-        case 500:
-            return {
-                title: 'Erro Interno',
-                message: 'Ocorreu um erro no servidor. Tente novamente mais tarde.'
-            };
-        default:
-            return {
-                title: 'Erro Inesperado',
-                message: 'Ocorreu um erro inesperado. Tente novamente mais tarde.'
-            };
-    }
+    const title = errorMapping[httpError.status] || 'Erro Inesperado';
+    const message = httpError.error?.message || 'Ocorreu um erro inesperado. Tente novamente mais tarde.';
+
+    return { title, message };
 };
 
 export const errorInterceptor: HttpInterceptorFn = (req, next) => {

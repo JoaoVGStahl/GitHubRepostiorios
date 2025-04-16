@@ -5,6 +5,8 @@ import { RepositorioItemComponent } from '../../shared/components/repositorio-it
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
+import { AppRoutes } from '../../domain/consts/routes.const';
 
 @Component({
   selector: 'app-repositorios-relevantes',
@@ -18,7 +20,10 @@ export class RepositoriosRelevantesComponent {
   buscando: boolean = false;
   asc: boolean = false;
 
-  constructor(private repositorioService: RepositoriosApiProvider) { }
+  constructor(
+    private repositorioService: RepositoriosApiProvider,
+    private router: Router
+  ) { }
 
   buscar(): void {
     if (this.buscando) return;
@@ -39,5 +44,9 @@ export class RepositoriosRelevantesComponent {
   toogleOrdenacao() {
     this.asc = !this.asc;
     this.buscar();
+  }
+
+  voltarParaHome(): void {
+    this.router.navigate([AppRoutes.home]);
   }
 } 
