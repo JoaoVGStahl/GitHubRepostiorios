@@ -38,8 +38,6 @@ Este projeto foi desenvolvido como parte de um desafio técnico, com o objetivo 
 
 4. Acesse no navegador:
    http://localhost:4200/home
-   
-   Certifique-se de que o backend esteja rodando antes de utilizar o frontend.
 
 ✍️ Decisões e boas práticas aplicadas
 
