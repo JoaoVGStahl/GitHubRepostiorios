@@ -34,7 +34,7 @@ Este projeto foi desenvolvido como parte de um desafio técnico, com o objetivo 
    npm install
 
 3. Execute o projeto:
-   npm start
+   ng serve
 
 4. Acesse no navegador:
    http://localhost:4200/home
